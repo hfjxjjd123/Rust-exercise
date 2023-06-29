@@ -12,4 +12,7 @@
 //   to uppercase and lowercase
 //   * Try searching for: to_uppercase, to_lowercase
 
-fn main() {}
+fn main() {
+    println!("{:?}", "Hakrim is Odd!".to_lowercase());
+    println!("{:?}", "Hakrim is Odd!".to_uppercase());
+}

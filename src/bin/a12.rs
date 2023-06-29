@@ -11,46 +11,57 @@
 // * Implement functionality on the box struct to print the characteristics
 
 fn main() {
-    let boxy = ShippingBox::create_box(3, 10, Colors::Yellow);
-    boxy.print_dimensions();
-    boxy.print_weight();
-    boxy.print_color();
+    let boxy = Box::generate_box(80, 7, Color::Black);
 
+    boxy.show_vol();
+    boxy.show_weight();
+    boxy.show_color();
+    boxy.show_props();
 }
 
-struct ShippingBox{
-    dimensions: i32,
+struct Box{
+    volume: i32,
     weight: i32,
-    color: Colors
+    color: Color
 }
-
-enum Colors{
-    Red,
-    Yellow,
-    Green
-}
-
-impl ShippingBox{
-    fn create_box(dimensions: i32, weight: i32, color: Colors) -> Self{
-        Self{
-            dimensions: dimensions,
+impl Box{
+    fn generate_box(vol: i32, weight: i32, color: Color) -> Self{
+        Self {
+            volume: vol,
             weight: weight,
-            color: color
+            color: color,
         }
-        
     }
 
-    fn print_dimensions(&self){
-        println!("dimensions: {:?}", self.dimensions)
+    fn show_vol(&self){
+        println!("volume: {:?}L", self.volume);
+    }    
+    fn show_weight(&self){
+        println!("weight: {:?}kg", self.weight);
     }
-    fn print_weight(&self){
-        println!("weight: {:?}", self.weight)
+    fn show_color(&self){
+        self.color.print();
     }
-    fn print_color(&self){
-        match self.color{
-            Colors::Red => println!("color: red"),
-            Colors::Yellow => println!("color: yellow"),
-            Colors::Green => println!("color: green"),
-        }
+    fn show_props(&self){
+        self.show_vol();
+        self.show_weight();
+        self.show_color();
+    }
+}
+
+enum Color{
+    Brown,
+    Black,
+    Purple
+}
+impl Color{
+    fn print(&self){
+        let color = match self{
+            Color::Brown => "brown",
+            Color::Black => "black",
+            Color::Purple => "purple",
+        };
+
+        println!("color: {:?}", color);
     }
 }
