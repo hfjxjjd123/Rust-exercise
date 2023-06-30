@@ -13,4 +13,28 @@
 // Notes:
 // * Use a HashMap for the furniture store stock
 
-fn main() {}
+use std::collections::HashMap;
+
+fn main() {
+    let mut stuffs = HashMap::new();
+    stuffs.insert(0,Furniture{kind: "Chairs".to_owned(), nums: 5});
+    stuffs.insert(1,Furniture{kind: "Beds".to_owned(), nums: 3});
+    stuffs.insert(2,Furniture{kind: "Tables".to_owned(), nums: 2});
+    stuffs.insert(3,Furniture{kind: "Couches".to_owned(), nums: 0});
+
+    for (num, furniture) in stuffs{
+        if furniture.nums != 0 {
+            println!("#{:?} -> {:?} stuffs", num, furniture.nums);
+        } else{
+            println!("#{:?} out of stocks", num);
+        }
+        
+    }
+
+}
+
+struct Furniture{
+    kind: String,
+    nums: i32
+}
+

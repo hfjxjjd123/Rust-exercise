@@ -11,4 +11,26 @@
 // * Return a result from the function
 // * The Err variant should detail the reason why they cannot make a purchase
 
-fn main() {}
+fn main() {
+    let customer1 = Customer{age: 28};
+    let valid = purchase(customer1);
+
+    match valid{
+        Ok(_) => println!("clean"),
+        Err(e) => println!("{:?}", e)
+    }
+}
+
+//구조체
+struct Customer{
+    age: i32,
+}
+
+//함수
+fn purchase(customer: Customer) -> Result<(), String> {
+    if customer.age < 21{
+        Err("not enough age!!".to_owned())
+    }else{
+        Ok(())
+    }
+}
