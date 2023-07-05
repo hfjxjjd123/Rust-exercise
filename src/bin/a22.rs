@@ -31,4 +31,25 @@ fn concat(first: &str, second: &str) -> String {
     format!("{} {}", first, second)
 }
 
-fn main() {}
+fn main() {
+
+}
+
+#[cfg(test)]
+mod test{
+    use crate::*;
+
+    #[test]
+    fn test_clamp(){
+        let mut result = clamp(32,32,40);
+        let mut expected = 32;
+        assert_eq!(result, expected, "NOT MATCHING");
+    }
+    #[test]
+    fn test_clamp2(){
+        let mut result = clamp(1000,32,40);
+        let mut expected = 40;
+        assert_eq!(result, expected, "NOT MATCHING");
+    }
+
+}
