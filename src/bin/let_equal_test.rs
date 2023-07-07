@@ -20,3 +20,14 @@ fn main() {
         println!("what?");
     }
 }
+
+/* 용례
+fn main(){
+    let lists = vec![1, 2, 3, 4, 5];
+    let mut lists_iter = lists.iter();
+
+    while let Some(num) = lists_iter.next() {
+        println!("{:?}", num);
+    }
+}
+*/
